@@ -5,5 +5,5 @@ This is a library initially used as a way to study the topic of Data Structures 
 
 # Data Structures:
 - List
-- Heap (priority queue)
-- Trie (maybe both most common versions, basic and compressed)
+- Heap (priority queue) (coming soon...)
+- Trie (maybe both most common versions, basic and compressed) (coming soon...)
