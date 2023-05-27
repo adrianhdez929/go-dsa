@@ -86,21 +86,21 @@ func TestInsert(t *testing.T) {
 	resultInt := testList.IndexOf(100)
 
 	if resultInt != expectedInt {
-		t.Errorf("Add:List.IndexOf(100) expected %v, found %v", expectedInt, resultInt)
+		t.Errorf("Insert:List.IndexOf(100) expected %v, found %v", expectedInt, resultInt)
 	}
 
 	expectedInt = 15
 	resultInt = testList.Count()
 
 	if resultInt != expectedInt {
-		t.Errorf("Add:List.Count() expected %v, found %v", expectedInt, resultInt)
+		t.Errorf("Insert:List.Count() expected %v, found %v", expectedInt, resultInt)
 	}
 
 	expectedBool := true
 	resultBool := testList.Contains(100)
 
 	if resultBool != expectedBool {
-		t.Errorf("Add:List.IndexOf(100) expected %v, found %v", expectedBool, resultBool)
+		t.Errorf("Insert:List.IndexOf(100) expected %v, found %v", expectedBool, resultBool)
 	}
 }
 
@@ -111,7 +111,7 @@ func TestInsertDoesNotExist(t *testing.T) {
 	resultInt := testList.Count()
 
 	if resultInt != expectedInt {
-		t.Errorf("Add:List.Count() expected %v, found %v", expectedInt, resultInt)
+		t.Errorf("Insert:List.Count() expected %v, found %v", expectedInt, resultInt)
 	}
 }
 
@@ -123,21 +123,21 @@ func TestRemove(t *testing.T) {
 	resultInt := testList.IndexOf(100)
 
 	if resultInt != expectedInt {
-		t.Errorf("Add:List.IndexOf(100) expected %v, found %v", expectedInt, resultInt)
+		t.Errorf("Remove:List.IndexOf(100) expected %v, found %v", expectedInt, resultInt)
 	}
 
 	expectedInt = 14
 	resultInt = testList.Count()
 
 	if resultInt != expectedInt {
-		t.Errorf("Add:List.Count() expected %v, found %v", expectedInt, resultInt)
+		t.Errorf("Remove:List.Count() expected %v, found %v", expectedInt, resultInt)
 	}
 
 	expectedBool := false
 	resultBool := testList.Contains(100)
 
 	if resultBool != expectedBool {
-		t.Errorf("Add:List.IndexOf(100) expected %v, found %v", expectedBool, resultBool)
+		t.Errorf("Remove:List.IndexOf(100) expected %v, found %v", expectedBool, resultBool)
 	}
 }
 
@@ -148,7 +148,7 @@ func TestRemoveDoesNotExist(t *testing.T) {
 	result := testList.Count()
 
 	if result != expected {
-		t.Errorf("List.Count() expected %d, found %d", expected, result)
+		t.Errorf("Remove:List.Count() expected %d, found %d", expected, result)
 	}
 }
 
@@ -160,21 +160,21 @@ func TestRemoveAt(t *testing.T) {
 	resultInt := testList.IndexOf(4)
 
 	if resultInt != expectedInt {
-		t.Errorf("Add:List.IndexOf(4) expected %v, found %v", expectedInt, resultInt)
+		t.Errorf("RemoveAt:List.IndexOf(4) expected %v, found %v", expectedInt, resultInt)
 	}
 
 	expectedInt = 13
 	resultInt = testList.Count()
 
 	if resultInt != expectedInt {
-		t.Errorf("Add:List.Count() expected %v, found %v", expectedInt, resultInt)
+		t.Errorf("RemoveAt:List.Count() expected %v, found %v", expectedInt, resultInt)
 	}
 
 	expectedBool := true
 	resultBool := testList.Contains(4)
 
 	if resultBool != expectedBool {
-		t.Errorf("Add:List.IndexOf(100) expected %v, found %v", expectedBool, resultBool)
+		t.Errorf("RemoveAt:List.IndexOf(100) expected %v, found %v", expectedBool, resultBool)
 	}
 }
 
@@ -185,7 +185,7 @@ func TestRemoveAtDoesNotExist(t *testing.T) {
 	result := testList.Count()
 
 	if result != expected {
-		t.Errorf("List.Count() expected %d, found %d", expected, result)
+		t.Errorf("RemoveAt:List.Count() expected %d, found %d", expected, result)
 	}
 }
 
@@ -197,20 +197,20 @@ func TestClear(t *testing.T) {
 	resultInt := testList.IndexOf(100)
 
 	if resultInt != expectedInt {
-		t.Errorf("Add:List.IndexOf(100) expected %v, found %v", expectedInt, resultInt)
+		t.Errorf("Clear:List.IndexOf(100) expected %v, found %v", expectedInt, resultInt)
 	}
 
 	expectedInt = 0
 	resultInt = testList.Count()
 
 	if resultInt != expectedInt {
-		t.Errorf("Add:List.Count() expected %v, found %v", expectedInt, resultInt)
+		t.Errorf("Clear:List.Count() expected %v, found %v", expectedInt, resultInt)
 	}
 
 	expectedBool := false
 	resultBool := testList.Contains(100)
 
 	if resultBool != expectedBool {
-		t.Errorf("Add:List.IndexOf(100) expected %v, found %v", expectedBool, resultBool)
+		t.Errorf("Clear:List.IndexOf(100) expected %v, found %v", expectedBool, resultBool)
 	}
 }
