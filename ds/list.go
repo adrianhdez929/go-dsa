@@ -19,30 +19,11 @@ type IntegerList struct {
 	elements []int
 }
 
-type IntegerListIterator struct {
-	currentIndex int
-	elements     []int
-}
-
-// Iterator
-func (iter *IntegerListIterator) HasNext() bool {
-	return iter.currentIndex+1 < len(iter.elements)
-}
-
-func (iter *IntegerListIterator) Next() int {
-	if iter.HasNext() {
-		iter.currentIndex++
-		return iter.elements[iter.currentIndex]
-	}
-	// hardcoded, but should raise error
-	return -1
-}
-
 // Iterable
 func (l *IntegerList) GetIterator() Iterator[int] {
-	return &IntegerListIterator{
+	return &GenericIterator[int]{
 		currentIndex: 0,
-		elements:     l.elements,
+		collection:   l.elements,
 	}
 }
 
