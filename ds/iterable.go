@@ -1,25 +1,26 @@
 package ds
 
-type Iterator interface {
+type Iterator[T any] interface {
 	HasNext() bool
-	Next() int
+	Next() T
 }
 
-type Iterable interface {
-	GetIterator() Iterator
+type Iterable[T any] interface {
+	GetIterator() Iterator[T]
 }
 
 // (value, index)
-type MapPredicate func(int, ...int) int
+type MapPredicate[T any] func(T, ...int) T
 
 // (accumulator, value)
-type ReducePredicate func(int, int) int
+type ReducePredicate[T any] func(T, T) T
 
 // (value)
-type BoolPredicate func(int) bool
+type BoolPredicate[T any] func(T) bool
 
-func Map(col Iterable, p MapPredicate) []int {
-	resultMap := []int{}
+// Query
+func Map[T any](col Iterable[T], p MapPredicate[T]) []T {
+	resultMap := []T{}
 	iter := col.GetIterator()
 	index := 0
 
@@ -31,8 +32,8 @@ func Map(col Iterable, p MapPredicate) []int {
 	return resultMap
 }
 
-func Filter(col Iterable, p BoolPredicate) []int {
-	resultFilter := []int{}
+func Filter[T any](col Iterable[T], p BoolPredicate[T]) []T {
+	resultFilter := []T{}
 	iter := col.GetIterator()
 
 	for iter.HasNext() {
@@ -45,9 +46,9 @@ func Filter(col Iterable, p BoolPredicate) []int {
 	return resultFilter
 }
 
-func Reduce(col Iterable, p ReducePredicate, initial int) int {
-	result := initial
+func Reduce[T any](col Iterable[T], p ReducePredicate[T]) T {
 	iter := col.GetIterator()
+	result := iter.Next()
 
 	for iter.HasNext() {
 		result = p(result, iter.Next())
@@ -56,7 +57,7 @@ func Reduce(col Iterable, p ReducePredicate, initial int) int {
 	return result
 }
 
-func Some(col Iterable, p BoolPredicate) bool {
+func Some[T any](col Iterable[T], p BoolPredicate[T]) bool {
 	iter := col.GetIterator()
 
 	for iter.HasNext() {
@@ -68,7 +69,7 @@ func Some(col Iterable, p BoolPredicate) bool {
 	return false
 }
 
-func Every(col Iterable, p BoolPredicate) bool {
+func Every[T any](col Iterable[T], p BoolPredicate[T]) bool {
 	iter := col.GetIterator()
 
 	for iter.HasNext() {

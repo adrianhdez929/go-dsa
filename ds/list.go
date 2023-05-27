@@ -1,5 +1,10 @@
 package ds
 
+type Comparable interface {
+	Equals() bool
+	Less() bool
+}
+
 type List interface {
 	// Mutation
 	Add(int)
@@ -39,7 +44,7 @@ func (iter *IntegerListIterator) Next() int {
 }
 
 // Iterable
-func (l *IntegerList) GetIterator() Iterator {
+func (l *IntegerList) GetIterator() Iterator[int] {
 	return &IntegerListIterator{
 		currentIndex: 0,
 		elements:     l.elements,
