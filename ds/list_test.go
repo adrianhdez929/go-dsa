@@ -6,7 +6,7 @@ import (
 )
 
 // Unit tests for List implementation
-var testList = ds.NewList([]int{1, 3, 4, 5, 7, 8, 2, 1, 1, 4, 3, 6, 9})
+var testList = ds.NewIntegerList([]int{1, 3, 4, 5, 7, 8, 2, 1, 1, 4, 3, 6, 9})
 
 func TestCount(t *testing.T) {
 	expected := 13

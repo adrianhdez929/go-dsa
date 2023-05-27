@@ -1,23 +1,18 @@
 package ds
 
-type Comparable interface {
-	Equals() bool
-	Less() bool
-}
-
-type List interface {
+type List[T comparable] interface {
 	// Mutation
-	Add(int)
-	Insert(e int, index int)
-	Remove(int)
+	Add(T)
+	Insert(e T, index int)
+	Remove(T)
 	RemoveAt(int)
 	Clear()
 
 	// Checking
-	Contains(int) bool
-	IndexOf(int) int
+	Contains(T) bool
+	IndexOf(T) int
 	Count() int
-	//Get(int) int
+	Get(int) T
 }
 
 type IntegerList struct {
@@ -105,7 +100,11 @@ func (l *IntegerList) Count() int {
 	return len(l.elements)
 }
 
-func NewList(values []int) List {
+func (l *IntegerList) Get(index int) int {
+	return l.elements[index]
+}
+
+func NewIntegerList(values []int) List[int] {
 	// hardcoded fixed initial len
 	//len := 100
 	return &IntegerList{
